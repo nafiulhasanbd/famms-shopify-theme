@@ -1,0 +1,47 @@
+
+
+<div class="article-template">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      	
+        <img style="max-width:100%" src="{{ article.image | img_url:'master'}}">
+        
+        
+        {{ article.published_at | date: "%a, %b %d, %Y" }}
+
+        <h1 class="h1">{{ article.title }}</h1>
+        <p>Author: {{ article.author }}</p>
+        
+        <p>{{ article.content }}</p>
+        
+        
+        {% for comment in article.comments %}
+        	
+        <p>{{ comment.content }}</p>
+        
+        
+        
+        {% endfor %}
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "Article Template",
+ 	"settings":[
+	
+{
+"type":"header",
+"content":"Article"
+}
+]
+}
+{% endschema %}

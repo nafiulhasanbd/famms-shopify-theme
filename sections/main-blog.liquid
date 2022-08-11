@@ -1,0 +1,46 @@
+<div class="blog-template">
+
+  
+  <div class="container">
+  	
+    <h1>Blog List</h1>
+    
+    <div class="row">
+      
+      {% for article in blog.articles %}
+      <div class="col-md-4">
+        <a href="{{ article.url }}">
+          <img style="max-width:100%" src="{{ article.image | img_url:'large'}}">
+        </a>
+        <h3>{{ article.title }}</h3>
+        <p>{{ article.content | truncate:30 }}</p>
+          
+          <a href="{{ article.url }}" class="btn btn-secoundary">Read More</a>
+      
+      </div>
+      
+      {% endfor %}
+      
+    </div>
+  
+  
+  </div>
+  
+
+</div>
+
+
+
+
+
+{% schema %}
+{
+  "name": "Blog Template",
+  "settings": [
+   	{
+	"type":"header",
+	"content":"Blog Page"
+}
+  ]
+}
+{% endschema %}
